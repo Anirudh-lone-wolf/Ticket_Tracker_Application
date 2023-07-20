@@ -30,9 +30,9 @@ public class TicketTrackerController {
 
 	@GetMapping("/view")
 	public String viewTicket(@RequestParam("id") long id, Model model) {
-		// System.out.println(id);
+		
 		Ticket ticket = ticketTrackerService.getTicketById(id);
-		// System.out.println(ticket.toString());
+		
 		model.addAttribute("viewTicket", ticket);
 		return "ui/viewticket";
 	}
