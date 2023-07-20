@@ -8,3 +8,4 @@
     * com.glearning.Project.service - contains a 'TicketService' Interface and an implementation class. Here the JpaRepository methods are used for                                                               different CRUD operations as required by the use case - Create, Read, Update, Delete and Search.
     * com.glearning.Project.controller - which will have url mappings to perfom different CRUDS functionalities in the UI
 * The UI is created using Thymeleaf. Thymeleaf is a modern server-side Java template engine for both web and standalone environments. Using Thymeleaf we have rendered the back end code on the front end UI so that the user can test out the different functionalities.
+This is a group project.
