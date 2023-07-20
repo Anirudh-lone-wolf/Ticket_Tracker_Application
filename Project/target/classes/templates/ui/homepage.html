@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+
+<title>Ticket Tracker Application</title>
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div width="100%">
+			<table width="100%" style="background-color: blue;" border="0">
+				<tr>
+					<td width="25%"><a href="/admin/tickets" style="color: white;">
+							Ticket Tracker Application </a></td>
+					<td width="15%"><a href="/admin/tickets" style="color: white;">
+							Tickets </a></td>
+					<td width="60%"><a href="/admin/tickets/newticket"
+						style="color: white;"> New Ticket</a></td>
+				</tr>
+			</table>
+
+		</div>
+		<hr>
+
+		<p class="h4 mb-4">List of Tickets</p>
+
+		<form action="/admin/tickets/search" method="GET">
+			<input type="text" name="searchString" th:value="${searchString}"
+				th:object=${searchString} />
+			<button type="submit" class="btn btn-info btn-sm ml-3 mr-1">Search</button>
+		</form>
+
+		<table width="95%" class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>#</th>
+					<th>Ticket Title</th>
+					<th>Ticket Short Description</th>
+					<th>Ticket Created On</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+
+
+			<tbody>
+				<tr th:each="loopTicket : ${tickets}">
+
+					<td th:text="${loopTicket.id}" />
+					<td th:text="${loopTicket.title}" />
+					<td th:text="${loopTicket.description}" />
+					<td th:text="${loopTicket.date}" />
+
+					<!--  
+                <td> 1</td>
+                <td>Ticket 1</td> 
+                <td>Ticket description </td>
+                <td>12-07-2023 </td>
+                <td>
+                -->
+					<td>
+
+						<div class="row">
+
+							<div class="col-small">
+								<!-- Add "update" button/link -->
+								<form action="#" th:action="@{/admin/tickets/edit}"
+									method="POST">
+									<input type="hidden" name="id" th:value="${loopTicket.id}" />
+									<button type="submit" class="btn btn-info btn-sm ml-3 mr-1">
+										Edit</button>
+								</form>
+							</div>
+							<div class="col-small">&nbsp; &nbsp;</div>
+							<div class="col-small">
+								<!-- Add "delete" button/link -->
+								<form action="#" th:action="@{/admin/tickets/delete}"
+									method="POST">
+
+									<input type="hidden" name="id" th:value="${loopTicket.id}" />
+									<button type="submit" class="btn btn-danger btn-sm"
+										onclick="if (!(confirm('Are you sure you want to cancel this ticket?'))) return false">
+										Delete</button>
+
+								</form>
+							</div>
+
+							<div class="col-small">&nbsp; &nbsp;</div>
+							<div class="col-small">
+								<form action="#" th:action="@{/admin/tickets/view}" method="GET">
+									<input type="hidden" name="id" th:value="${loopTicket.id}" />
+									<button type="submit" class="btn btn-info btn-sm">
+										View</button>
+								</form>
+							</div>
+
+						</div>
+					</td>
+
+
+				</tr>
+			</tbody>
+		</table>
+
+
+		<hr>
+	</div>
+
+</body>
+
+</html>
