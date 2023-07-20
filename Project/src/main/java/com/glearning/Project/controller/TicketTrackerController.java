@@ -29,10 +29,8 @@ public class TicketTrackerController {
 	}
 
 	@GetMapping("/view")
-	public String viewTicket(@RequestParam("id") long id, Model model) {
-		
-		Ticket ticket = ticketTrackerService.getTicketById(id);
-		
+	public String viewTicket(@RequestParam("id") long id, Model model) {	
+		Ticket ticket = ticketTrackerService.getTicketById(id);	
 		model.addAttribute("viewTicket", ticket);
 		return "ui/viewticket";
 	}
