@@ -1,7 +1,7 @@
 # Ticket_Tracker_Application
 * **Ticket tracker application with CRUDS (Create, Read, Update, Delete, Search) functionality**
 * This project is created using Spring Boot(version 3.1.1). The Spring Boot autoconfiguration registers and configures the DispatcherServlet automatically. Therefore, we have not included the web.xml file or registered DispatcherServlet manually. The only xml file in this project is the project POM file (Maven is the build tool used here).
-* We have used MySQL as the database for this project. All configuration details are in application.properties file in src/main/resources folder. **Password section is left blank kindly put your own password before executing this project**.
+* We have used MySQL as the database for this project. All configuration details are in application.properties file in src/main/resources folder. **Password section is left blank kindly enter your own password before executing this project**.
 * The main package is com.glearning.Project which contains the Driver class of the Application There are 5 sub-packages :
     * com.glearning.Project.model - conatains the 'Ticket' entity class
     * com.glearning.Project.doa - contains a 'TicketRepository' interface which extends JpaRepository for database related operations in spring
